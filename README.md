@@ -26,19 +26,22 @@
 > ReactとExpressを使用する場合、通常はpackage.jsonを分けることが推奨される。  
 > これにより、それぞれのパッケージの依存関係とスクリプトを独立して管理できる。  
 
-1. Expressのセットアップ: コマンドラインでプロジェクトディレクトリに移動し、以下のコマンドを実行してExpressをインストール  
+1. Expressのセットアップ: コマンドラインでプロジェクトディレクトリに移動し、  
+以下のコマンドを実行してExpressをインストール  
 `npm install express`  
-Expressアプリケーションのファイル（例: server.js）を作成する。
+
+1. Expressアプリケーションのファイル（例: server.js）を作成する。  
 
 [express のインストール方法](https://expressjs.com/ja/starter/installing.html)
 
-1. Reactのセットアップ: プロジェクトディレクトリで以下のコマンドを実行して、Reactをセットアップ  
+1. Reactのセットアップ: プロジェクトディレクトリで以下のコマンドを実行  
 `npx create-react-app client`  
 これにより、新しい"client"ディレクトリが作成され、Reactプロジェクトがセットアップされる。  
 
 [React のインストール方法](https://react.dev/learn/start-a-new-react-project)
 
-1. Knexのセットアップ: コマンドラインでプロジェクトディレクトリに戻り、以下のコマンドを実行してKnexをインストール  
+1. Knexのセットアップ: コマンドラインでプロジェクトディレクトリに戻り、  
+以下のコマンドを実行してKnexをインストール  
 `npm install knex`  
 
 1. プロジェクトディレクトリ内にknexfile.jsを生成  
@@ -65,14 +68,11 @@ module.exports = {
 };
 ```
 
-1. データベースのマイグレーションファイルとシーディングファイルを保存するため"migrations"と"seeds"ディレクトリを作成  
+1. データベースのマイグレーションファイルとシーディングファイルを保存するため  
+"migrations"と"seeds"ディレクトリを作成  
 
 [knex のインストール方法](https://knexjs.org/guide/#node-js)
 
 1. PostgreSQLのNode.js用ドライバであるpgパッケージをインストールするためのコマンド。  
-Knexと連携してPostgreSQLデータベースを使用する場合には、pgパッケージもインストールする必要がある。  
 `npm install pg`  
-
-package.json に scripts の追加が必要かも  
-`start`はアプリを起動するものにする  
-`build`は`npm install`と postgresql へマイグレートするもの  
+Knexと連携してPostgreSQLデータベースを使用する場合には、pgパッケージもインストールする必要がある。  
