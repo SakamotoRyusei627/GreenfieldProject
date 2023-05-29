@@ -139,10 +139,9 @@ Knexと連携してPostgreSQLデータベースを使用する場合には、pg�
 - `makeSeed`：新しいシーディングファイルを作成する `knex seed:make` コマンドを実行。  
 これにより、Knexが新しいシーディングファイルのテンプレートを作成。  
 `npm run makeSeed -- my_products` で `my_products.js` が  
-`knexfile.js` に記載した  
+`knexfile.js` に記載した以下に作成される。  
 ```
 seeds: {
   directory: './db/seeds'
 }
 ```
-に作成される。  
