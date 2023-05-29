@@ -25,5 +25,4 @@ package.json に scripts の追加が必要かも
 `start`はアプリを起動するものにする
 `build`は`npm install`と postgresql へマイグレートするもの
 
-morisaki
-morisaki
+リベンジ
