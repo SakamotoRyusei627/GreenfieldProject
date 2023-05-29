@@ -4,29 +4,28 @@
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 module.exports = {
-
   development: {
     client: 'postgresql',
     connection: {
       host: 'localhost',
+      port: 5432,
       database: 'greenfield',
-      user: "user",
+      user: 'user',
       password: 'user'
     },
     migrations: {
-      directory: './migrations'
+      directory: './db/migrations'
     },
     seeds: {
-      directory: './seeds'
+      directory: './db/seeds'
     }
   },
-
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'greenfield',
+      user: 'user',
+      password: 'user'
     },
     pool: {
       min: 2,
@@ -36,13 +35,12 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   },
-
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      database: 'greenfield',
+      user: 'user',
+      password: 'user'
     },
     pool: {
       min: 2,
@@ -52,5 +50,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };
