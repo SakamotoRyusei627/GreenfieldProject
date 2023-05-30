@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [value, setValue] = useState([]);
+
+  const handleClick = async () => {
+    console.log("hello");
+    const fetchData = await fetch("http://localhost:8000/test");
+    console.log(fetchData);
+    const jsonData = await fetchData.json();
+    console.log(jsonData);
+    setValue([...value, jsonData]);
+  }
+  console.log(value);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={handleClick}>送信</button>
+      <p>{value.map(e => e.firstName)}</p>
+      <p>上に表示</p>
     </div>
   );
-}
+};
 
 export default App;
