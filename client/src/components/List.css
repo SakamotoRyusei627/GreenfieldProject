@@ -1,0 +1,30 @@
+.wrapper {
+  width: 300px;
+  margin-top: 3em;
+}
+
+img {
+  width: 300px;
+  height: 200px;
+}
+
+ul {
+  background-color: white;
+  list-style-type: none;
+  padding: 1em;
+}
+
+li {
+  text-align: left;
+  margin: 0.8rem;
+}
+
+.wrapper-title {
+  font-size: 0.9em;
+}
+
+.wrapper-date,
+.wrapper-tag,
+.wrapper-url {
+  font-size: 0.7em;
+}
