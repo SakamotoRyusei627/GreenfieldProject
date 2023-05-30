@@ -23,6 +23,10 @@ README ファイル作成の場合は「Initialize this repository with a README
 ・ブランチ確認
 `git branch`
 作業中ブランチに＊
+作業用ブランチない場合、新しいブランチを作成し、切り替え
+`git checkout -b new_sarai`
+これにより、"new_sarai" ブランチ
+が作成され、現在のブランチが "new_Sarai" に切り替わる。
 
 ### 作業用ブランチに移動
 
