@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, MouseEventHandler } from "react";
 import "./App.css";
 import "./Reset.css";
 import React from "react";
@@ -9,9 +9,10 @@ import { table } from "./globals";
 type Props = {
   show: boolean;
   setShow: Function;
+  handleClick: MouseEventHandler<HTMLButtonElement>;
 };
 
-const Modal: React.FC<Props> = ({ show, setShow }) => {
+const Modal: React.FC<Props> = ({ show, setShow, handleClick }) => {
   if (show) {
     return (
       <div id="overlay">
@@ -41,7 +42,7 @@ const Modal: React.FC<Props> = ({ show, setShow }) => {
             <label htmlFor="cheese">画像</label>
             <input type="text" name="cheese" id="cheese" />
           </div>
-          <button>投稿</button>
+          <button onClick={handleClick}>投稿</button>
           <button onClick={() => setShow(false)}>Close</button>
         </div>
       </div>
@@ -67,24 +68,22 @@ function App() {
 
   const handleClick = async () => {
     const fetchData = await fetch("http://localhost:8000/test");
-    // console.log(fetchData);
     const jsonData = await fetchData.json();
-    // console.log(jsonData);
     setValue([...value, jsonData]);
   };
-  console.log(value);
 
   return (
     <div className="App">
-      <div>
-        <button onClick={openModal}>投稿ウィンドウ表示</button>
-        <Modal show={show} setShow={setShow} />
-      </div>
-      {/* <img src="./images/postgresql.svg" width="90" height="90" alt="SVG画像" /> */}
+      <Modal
+        show={show}
+        setShow={setShow}
+        handleClick={handleClick}
+      />
       <Header
         tagList={tagList}
         setTagList={setTagList}
         handleClick={handleClick}
+        openModal={openModal}
       />
       <SearchList value={value} />
     </div>
