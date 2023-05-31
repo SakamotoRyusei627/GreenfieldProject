@@ -12,7 +12,8 @@ const List: React.FC<Props> = ({ post }) => {
     <div className="wrapper">
       <a href={post.url}>
         <div>
-          <img src="https://picsum.photos/200" alt="参考" />
+          {/* <img src="https://picsum.photos/200" alt="参考" /> */}
+          <img src={`./images/${"css"}.svg`} alt="アイコン" />
         </div>
         <div>
           <ul>
