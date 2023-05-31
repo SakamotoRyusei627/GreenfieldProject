@@ -3,7 +3,13 @@
   width: 100%;
   height: 100px;
   background-color: #434343;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
+  /* // header固定 */
+  position: sticky;
+  top: 0;
+  z-index: 200;
+
+  box-shadow: 0 -3px 10px 5px rgb(154, 154, 154);
 }
 
 form.Header-form {
@@ -25,6 +31,10 @@ form.Header-form {
   outline: none;
 }
 
+select {
+  outline: none;
+}
+
 form button {
   border: none;
   background: #fff;
@@ -36,10 +46,53 @@ form button {
   justify-content: center;
 }
 
+.TuneIcon {
+  background-color: #fff;
+  padding: 0.25em 0.1em 0.1em 0.5em;
+  border-radius: 0.5em 0 0 0.5em;
+  cursor: pointer;
+}
+
 #word {
-  margin-right: 5px;
+  margin-right: 1em;
+  text-align: center;
+  border: none;
+  border-radius: 0 0.5em 0.5em 0;
+  cursor: pointer;
+}
+
+.SyncAltIcon {
+  transform: rotate(90deg);
+  position: relative;
+  left: 1px;
+  width: 2.05em;
+  background-color: #fff;
+  border-radius: 0 0 0.5em 0.5em;
+  cursor: pointer;
 }
 
 #date {
-  margin-right: 5em;
+  margin-right: 3em;
+  border: none;
+  border-radius: 0 0.5em 0.5em 0;
+  cursor: pointer;
+}
+
+button.new-post {
+  color: #e9e5de;
+  background-color: #434343;
+  cursor: pointer;
+  border: solid 0.2em #e9e5de;
+  font-size: 0.7em;
+  border-radius: 0.8em;
+}
+
+button.new-post:hover {
+  background-color: #e9e5de;
+  border: solid 0.2em #e9e5de;
+  color: #434343;
+}
+
+button.new-post div {
+  text-align: center;
 }

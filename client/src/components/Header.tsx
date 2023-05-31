@@ -2,6 +2,9 @@ import React, { MouseEventHandler, useEffect, useRef, useState } from "react";
 import "./Header.css";
 import "../Reset.css";
 import SearchIcon from "@mui/icons-material/Search";
+import TuneIcon from '@mui/icons-material/Tune';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import AddIcon from '@mui/icons-material/Add';
 import { table } from "../globals";
 
 type Props = {
@@ -32,8 +35,8 @@ const Header: React.FC<Props> = ({
     console.log(e.target.search.value);
 
     const searchValue = e.target.search.value.toLowerCase();
-    console.log("####################");
-    console.log(searchValue);
+    // console.log("####################");
+    // console.log(searchValue);
 
     setSearchSave(searchValue);
 
@@ -145,6 +148,9 @@ const Header: React.FC<Props> = ({
         </button>
       </form>
       <div className="filter">
+      <label className="TuneIcon">
+          <TuneIcon />
+        </label>
         <select name="" id="word" onChange={selectTag}>
           {tagList.map((tag, index) => {
             return (
@@ -154,6 +160,9 @@ const Header: React.FC<Props> = ({
             );
           })}
         </select>
+        <label className="SyncAltIcon">
+          <SyncAltIcon />
+        </label>
         <select name="" id="date" onChange={selectSort}>
           {["昇順", "降順"].map((date, index) => {
             return (
@@ -163,7 +172,11 @@ const Header: React.FC<Props> = ({
             );
           })}
         </select>
-        <button onClick={openModal}>投稿ウィンドウ表示</button>
+        <button className="new-post" onClick={openModal}>
+          <div>
+            <AddIcon />
+          </div>
+        </button>
       </div>
     </header>
   );

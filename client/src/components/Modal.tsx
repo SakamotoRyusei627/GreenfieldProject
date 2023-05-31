@@ -47,6 +47,7 @@ const Modal: React.FC<Props> = ({
 
     // setValue([...value, ...fetchData]);
     setValue([...value, result]);
+    setShow(false);
   };
 
   if (show) {
@@ -54,7 +55,7 @@ const Modal: React.FC<Props> = ({
       <div id="overlay">
         <div id="content">
           <form onSubmit={handleSubmit} className="Modal_form">
-            <h1>「投稿画面」</h1>
+            <h1>NEW POST</h1>
             <div>
               {/* <label htmlFor="title">タイトル</label> */}
               <input
@@ -63,6 +64,7 @@ const Modal: React.FC<Props> = ({
                 name="title"
                 id="title"
                 placeholder=" Title"
+                required
               />
             </div>
             {/* <div>

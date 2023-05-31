@@ -8,7 +8,7 @@ exports.seed = async function (knex) {
   await knex("posted").insert([
     {
       title: "useStateの使い方が分からなかった",
-      posted_date: "20230501",
+      posted_date: "2023-05-01",
       tag: "react",
       keyword: "react 公式ドキュメント",
       url: "https://ja.legacy.reactjs.org/docs/getting-started.html",
@@ -17,7 +17,7 @@ exports.seed = async function (knex) {
     },
     {
       title: "PostgreSQL Doc",
-      posted_date: "20230510",
+      posted_date: "2023-05-10",
       tag: "PostgreSQL",
       keyword: "PostgreSQL 公式ドキュメント",
       url: "https://www.postgresql.jp/document/10/html/index.html",
@@ -25,7 +25,7 @@ exports.seed = async function (knex) {
     },
     {
       title: "超初心者向け GitHubの使い方 ~ ブランチ",
-      posted_date: "20230520",
+      posted_date: "2023-05-20",
       tag: "git",
       keyword: "git branch, git checkout",
       url: "https://magazine.techacademy.jp/magazine/6235",
@@ -35,7 +35,7 @@ exports.seed = async function (knex) {
     },
     {
       title: "TypeScript + Node.js プロジェクトのはじめかた2020",
-      posted_date: "20230530",
+      posted_date: "2023-05-30",
       tag: "TypeScript",
       keyword: "TypeScript + Node.js のプロジェクトを作成",
       url: "https://qiita.com/notakaos/items/3bbd2293e2ff286d9f49",
@@ -45,7 +45,7 @@ exports.seed = async function (knex) {
     },
     {
       title: "React, Express でSSRを実現する",
-      posted_date: "20230530",
+      posted_date: "2023-05-30",
       tag: "Express",
       keyword: "CSR(Client Side Rendering), SSR (Server Side Rendering)",
       url: "https://zenn.dev/b1essk/articles/ssr-with-react-express",

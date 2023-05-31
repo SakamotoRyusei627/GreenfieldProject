@@ -6,7 +6,7 @@ exports.up = function (knex) {
   return knex.schema.createTable("posted", (table) => {
     table.increments("id").primary();
     table.string("title", 128).notNullable();
-    table.integer("posted_date").notNullable();
+    table.string("posted_date").notNullable();
     table.string("tag", 64).notNullable();
     table.string("keyword", 64).notNullable();
     table.text("url").notNullable();
