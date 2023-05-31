@@ -27,9 +27,40 @@ function App() {
   };
 
   const handleClick = async () => {
-    const fetchData = await fetch("http://localhost:8000/test");
-    const jsonData = await fetchData.json();
-    setValue([...value, jsonData]);
+    console.log("投稿ボタンが押されました。");
+
+    const textContent = JSON.stringify({
+      title: "title",
+      postedDate: "2023-05-10",
+      tag: "tag",
+      keyword: "keyword",
+      url: "url",
+      pictureUrl: "pict_url",
+    });
+
+    const textContent2 = JSON.stringify({
+      title: "title",
+      postedDate: "2024-02-11",
+      tag: "tag",
+      keyword: "keyword",
+      url: "url",
+    });
+
+    const options: { method: string; body: string; headers: any } = {
+      method: "POST",
+      body: textContent,
+      headers: new Headers({ "Content-Type": "application/json" }),
+    };
+
+    await fetch("http://localhost:8000/send/5", options).then((response) => {
+      response.text().then((textValue) => {
+        console.log(textValue);
+      });
+    });
+
+    // const fetchData = await fetch("http://localhost:8000/test");
+    // const jsonData = await fetchData.json();
+    // setValue([...value, jsonData]);
   };
 
   return (
