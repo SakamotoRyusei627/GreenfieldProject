@@ -2,7 +2,7 @@ export interface table {
   All: string;
   id: number;
   title: string;
-  postedDate: number;
+  postedDate: string;
   tag: string;
   keyword: string;
   url: string;

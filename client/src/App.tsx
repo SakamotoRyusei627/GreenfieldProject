@@ -20,6 +20,8 @@ function App() {
     "postgresql",
     "postman",
     "typescript",
+    "git",
+    "react",
   ]);
   const [filterValue, setFilterValue] = useState<table[]>([]);
 
@@ -27,37 +29,41 @@ function App() {
     (async () => {
       const fetchData = await fetch("http://localhost:8000/list");
       const jsonData = await fetchData.json();
-      jsonData.forEach((element:any) => {
-        const result = Object.values(element);
-        element.All=result.join().toLowerCase();
+      jsonData.forEach((element: any) => {
+        // const result = Object.values(element);
+        // element.All = result.join().toLowerCase();
+        const result = `${element.title},${element.tag},${element.keyword},${element.postedDate}`;
+        element.All = result.toLowerCase();
       });
       // console.log(jsonData);
       // console.table(jsonData);
       setValue(jsonData);
-    })()
+    })();
   }, []);
 
   useEffect(() => {
-    const arrMap =value.map((elem)=>{
-      // console.log("Alliiiiiii",elem);
-      return elem.tag.toLowerCase()});
-      const set = new Set(arrMap);
-      setTagList(["All", ...Array.from(set)]);
+    const arrMap = value.map((elem) => {
+      // console.log("Alliiiiiii", elem);
+      return elem.tag.toLowerCase();
+    });
+    const set = new Set(arrMap);
+    setTagList(["All", ...Array.from(set)]);
 
-      value.forEach((element:any) => {
-        const result = Object.values(element);
-        element.All=result.join().toLowerCase();
-      });
+    // value.forEach((element: any) => {
+    //   const result = Object.values(element);
+    //   element.All = result.join().toLowerCase();
+    // });
 
-      setFilterValue(value);
+    setFilterValue(value);
   }, [value]);
+  // console.log(value);
 
   const [show, setShow] = useState<boolean>(false);
   const openModal = () => {
     setShow(true);
   };
 
-  const inputRef =  useRef(null);
+  const inputRef = useRef(null);
 
   return (
     <div className="App">
@@ -76,7 +82,7 @@ function App() {
         setFilterValue={setFilterValue}
         value={value}
       />
-      <SearchList filterValue={filterValue} imgList={imgList}/>
+      <SearchList filterValue={filterValue} imgList={imgList} />
     </div>
   );
 }
