@@ -1,0 +1,56 @@
+
+#overlay {
+  /*　画面全体を覆う設定　*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /*　画面の中央に要素を表示させる設定　*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#content {
+  z-index: 2000;
+  width: 30%;
+  padding: 1em;
+  background: #fff;
+  border-radius: 0.5em;
+}
+
+.Modal_form {
+  display: block;
+}
+
+.Modal_form div {
+  margin: 2em;
+  text-align: center;
+}
+
+.Modal_form div input {
+  outline: none;
+  height: 3em;
+  width: 100%;
+  letter-spacing: 0.1em;
+  border: solid 1px #d5d5d5;
+  border-radius: 0.5em;
+}
+
+.Modal_form div input:hover {
+  background-color: #f1eeee;
+}
+
+.Modal_form button {
+  margin: 1em 3em;
+  padding: 1em;
+  border-radius: 0.5em;
+  color: #7b7b7b;
+}
+
+.Modal_form button:hover {
+  background-color: #f1eeee;
+}

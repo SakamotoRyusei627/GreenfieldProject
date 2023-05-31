@@ -6,14 +6,17 @@ import "./SearchList.css";
 import "../Reset.css";
 
 type Props = {
-  value: table[];
+  filterValue: table[];
+  imgList:string[]
 };
 
-const SearchList: React.FC<Props> = ({ value }) => {
+const SearchList: React.FC<Props> = ({ filterValue, imgList }) => {
+  // console.log("filterValue", filterValue);
+  
   return (
     <div className="flex_test-box">
-      {value.map((post, index) => (
-        <List post={post} key={index} />
+      {filterValue.map((post, index) => (
+        <List post={post} key={index} imgList={imgList}/>
       ))}
     </div>
   );

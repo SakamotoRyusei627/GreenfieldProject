@@ -6,7 +6,7 @@
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-form {
+form.Header-form {
   display: flex;
   justify-content: center;
   align-items: center;
