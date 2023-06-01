@@ -1,4 +1,4 @@
-import React,{ useState, MouseEventHandler, RefObject }  from 'react'
+import React from 'react'
 import "./Modal.css";
 import "../Reset.css";
 import { table } from "../globals";
@@ -8,12 +8,11 @@ type Props = {
     show: boolean;
     setShow: Function;
     tagList: string[];
-    inputRef: RefObject<HTMLInputElement>;
     setValue: Function;
     value: table[];
   };
 
-const Modal: React.FC<Props> = ({ show, setShow, tagList, inputRef, value, setValue}) => {
+const Modal: React.FC<Props> = ({ show, setShow, tagList, value, setValue}) => {
 
   const handleSubmit = async (e:any) => {
     e.preventDefault();
@@ -40,6 +39,7 @@ const Modal: React.FC<Props> = ({ show, setShow, tagList, inputRef, value, setVa
 
     // setValue([...value, ...fetchData]);
     setValue([...value, result]);
+    setShow(false);
   };
 
   if (show) {
@@ -47,10 +47,10 @@ const Modal: React.FC<Props> = ({ show, setShow, tagList, inputRef, value, setVa
       <div id="overlay">
         <div id="content">
           <form onSubmit={handleSubmit} className='Modal_form' >
-            <h1>「投稿画面」</h1>
+            <h1>NEW POST</h1>
             <div>
               {/* <label htmlFor="title">タイトル</label> */}
-              <input ref={inputRef} type="text" name="title" id="title" placeholder=' Title' />
+              <input type="text" name="title" id="title" placeholder=' Title' required />
             </div>
             {/* <div>
               <label htmlFor="date">日付</label>

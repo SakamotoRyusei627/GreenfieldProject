@@ -3,18 +3,19 @@ import React, { MouseEventHandler } from "react";
 import "./Header.css";
 import "../Reset.css";
 import SearchIcon from "@mui/icons-material/Search";
+import TuneIcon from '@mui/icons-material/Tune';
+import SyncAltIcon from '@mui/icons-material/SyncAlt';
+import AddIcon from '@mui/icons-material/Add';
 import { table } from "../globals";
 
 type Props = {
   tagList: string[];
-  // setTag: (tagList: string[]) => void;
-  setTagList: Function;
   openModal: MouseEventHandler<HTMLButtonElement>;
   setFilterValue: Function;
   value: table[];
 };
 
-const Header: React.FC<Props> = ({ tagList, setTagList, openModal, setFilterValue, value }) => {
+const Header: React.FC<Props> = ({ tagList, openModal, setFilterValue, value }) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -24,7 +25,6 @@ const Header: React.FC<Props> = ({ tagList, setTagList, openModal, setFilterValu
     console.log(searchValue);
 
     const filterValue = value.filter(elm => elm.All.includes(searchValue));
-    // console.log(filterValue);
     if (filterValue.length===0) {
       setFilterValue(value);
     } else {
@@ -34,9 +34,7 @@ const Header: React.FC<Props> = ({ tagList, setTagList, openModal, setFilterValu
 
   const selectTag = (e: any) => {
     const target=e.target.value
-    // console.log(target);
     const filterValue = value.filter(elm => elm.All.includes(target));
-    // console.log(filterValue);
     if (target==="All") {
       setFilterValue(value);
     } else {
@@ -51,17 +49,27 @@ const Header: React.FC<Props> = ({ tagList, setTagList, openModal, setFilterValu
         <button><SearchIcon /></button>
       </form>
       <div className="filter">
+        <label className="TuneIcon">
+          <TuneIcon />
+        </label>
         <select name="" id="word" onChange={selectTag}>
           {tagList.map((tag, index) => {
             return <option key={index} value={tag}>{tag}</option>;
           })}
         </select>
+        <label className="SyncAltIcon">
+          <SyncAltIcon />
+        </label>
         <select name="" id="date">
           {["昇順", "降順"].map((date, index) => {
             return <option key={index} value={date}>{date}</option>;
           })}
         </select>
-        <button onClick={openModal}>投稿ウィンドウ表示</button>
+        <button className="new-post" onClick={openModal}>
+          <div>
+            <AddIcon />
+          </div>
+        </button>
       </div>
     </header>
   );

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import "./Reset.css";
 import Header from "./components/Header";
@@ -11,17 +11,21 @@ function App() {
   const [value, setValue] = useState<table[]>([]);
   const [tagList, setTagList] = useState<string[]>([]);
   const [imgList, setImgList] = useState<string[]>([
-    "css",
-    "express",
+    "git",
     "html",
+    "css",
     "javascript",
-    "knex",
-    "nodejs",
-    "postgresql",
-    "postman",
     "typescript",
+    "react",
+    "express",
+    "knex",
+    "node",
+    "postman",
+    "postgresql",
   ]);
+  const [show, setShow] = useState<boolean>(false);
   const [filterValue, setFilterValue] = useState<table[]>([]);
+  console.log(value);
 
   useEffect(() => {
     (async () => {
@@ -31,15 +35,12 @@ function App() {
         const result = Object.values(element);
         element.All=result.join().toLowerCase();
       });
-      // console.log(jsonData);
-      // console.table(jsonData);
       setValue(jsonData);
     })()
   }, []);
 
   useEffect(() => {
     const arrMap =value.map((elem)=>{
-      // console.log("Alliiiiiii",elem);
       return elem.tag.toLowerCase()});
       const set = new Set(arrMap);
       setTagList(["All", ...Array.from(set)]);
@@ -52,12 +53,9 @@ function App() {
       setFilterValue(value);
   }, [value]);
 
-  const [show, setShow] = useState<boolean>(false);
   const openModal = () => {
     setShow(true);
   };
-
-  const inputRef =  useRef(null);
 
   return (
     <div className="App">
@@ -65,13 +63,11 @@ function App() {
         show={show}
         setShow={setShow}
         tagList={tagList}
-        inputRef={inputRef}
         setValue={setValue}
         value={value}
       />
       <Header
         tagList={tagList}
-        setTagList={setTagList}
         openModal={openModal}
         setFilterValue={setFilterValue}
         value={value}

@@ -25,6 +25,10 @@ form.Header-form {
   outline: none;
 }
 
+select {
+  outline: none;
+}
+
 form button {
   border: none;
   background: #fff;
@@ -36,10 +40,53 @@ form button {
   justify-content: center;
 }
 
+.TuneIcon {
+  background-color: #fff;
+  padding: 0.25em 0.1em 0.1em 0.5em;
+  border-radius: 0.5em 0 0 0.5em;
+  cursor: pointer;
+}
+
 #word {
-  margin-right: 5px;
+  margin-right: 1em;
+  text-align: center;
+  border: none;
+  border-radius: 0 0.5em 0.5em 0;
+  cursor: pointer;
+}
+
+.SyncAltIcon {
+  transform:rotate(90deg);
+  position: relative;
+  left: 1px;
+  width: 2.05em;
+  background-color: #fff;
+  border-radius: 0 0 0.5em 0.5em;
+  cursor: pointer;
 }
 
 #date {
-  margin-right: 5em;
+  margin-right: 3em;
+  border: none;
+  border-radius: 0 0.5em 0.5em 0;
+  cursor: pointer;
+}
+
+button.new-post {
+  color: #E9E5DE;
+  background-color: #434343;
+  cursor: pointer;
+  border: solid 0.2em #E9E5DE;
+  font-size: 0.7em;
+  border-radius: 0.8em;
+}
+
+button.new-post:hover {
+  background-color: #E9E5DE;
+  border: solid 0.2em #E9E5DE;
+  color: #434343;
+}
+
+button.new-post div {
+  text-align: center;
 }

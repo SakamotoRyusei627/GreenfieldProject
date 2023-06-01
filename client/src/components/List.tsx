@@ -8,13 +8,7 @@ type Props = {
   post: table;
   imgList:string[]
 };
-const List: React.FC<Props> = ({ post ,imgList}) => {
-  // console.log("###################################");
-  // console.log(imgList);
-  // console.log(post.tag.toLowerCase());
-  // console.log(imgList.includes(post.tag.toLowerCase()));
-  // const postTag
-  
+const List: React.FC<Props> = ({ post ,imgList}) => {  
   return (
     <div className="wrapper">
       <a href={post.url}>
@@ -25,18 +19,18 @@ const List: React.FC<Props> = ({ post ,imgList}) => {
           }
         </div>
         <div>
-          <ul>
+          <ul className="explanation">
             <li className="wrapper-title">
-              {`【${post.title}】`}
+              {`${post.title}`}
             </li>
             <li className="wrapper-date">
-              {`投稿日時:${post.postedDate}`}
+              {`日時　${post.postedDate}`}
             </li>
             <li className="wrapper-tag">
-              {`言語タグ:${post.tag}`}
+              {`タグ　${post.tag}`}
             </li>
             <li className="wrapper-keyword">
-              {`検索:${post.keyword}`}
+              {`検索　${post.keyword}`}
             </li>
           </ul>
         </div>

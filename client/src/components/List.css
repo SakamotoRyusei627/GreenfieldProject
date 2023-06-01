@@ -1,12 +1,27 @@
 .wrapper {
-  width: 300px;
+  width: 320px;
   margin: 2em;
 }
 
+.wrapper a {
+  text-decoration: none;
+  color: #434343;
+}
+
+.explanation {
+  min-height: 130px;
+  max-height: 130px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
 img {
-  width: 300px;
-  height: 200px;
-  background-color: #E9E5DE;
+  width: 320px;
+  height: 180px;
+  padding: 1em 0;
+  background-color: #f6f6f6;
   box-shadow: 0 -3px 10px 5px rgb(205, 205, 205);
   border-radius: 0.5em 0.5em 0 0;
 }
@@ -21,15 +36,17 @@ ul {
 
 li {
   text-align: left;
-  margin: 0.8rem;
+  margin: 0.7em 0.6rem;
 }
 
 .wrapper-title {
   font-size: 0.9em;
+  margin-bottom: 1.2em;
+  font-weight: 600;
 }
 
 .wrapper-date,
 .wrapper-tag,
-.wrapper-url {
+.wrapper-keyword {
   font-size: 0.7em;
 }

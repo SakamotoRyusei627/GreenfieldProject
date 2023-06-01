@@ -11,8 +11,6 @@ type Props = {
 };
 
 const SearchList: React.FC<Props> = ({ filterValue, imgList }) => {
-  // console.log("filterValue", filterValue);
-  
   return (
     <div className="flex_test-box">
       {filterValue.map((post, index) => (
