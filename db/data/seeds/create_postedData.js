@@ -46,7 +46,7 @@ exports.seed = async function (knex) {
     {
       title: "React, Express でSSRを実現する",
       posted_date: "2023-05-30",
-      tag: "Express",
+      tag: "TReact, Express",
       keyword: "CSR(Client Side Rendering), SSR (Server Side Rendering)",
       url: "https://zenn.dev/b1essk/articles/ssr-with-react-express",
       pict_url:

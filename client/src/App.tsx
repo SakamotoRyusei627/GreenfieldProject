@@ -30,33 +30,28 @@ function App() {
       const fetchData = await fetch("http://localhost:8000/list");
       const jsonData = await fetchData.json();
       jsonData.forEach((element: any) => {
-        // const result = Object.values(element);
-        // element.All = result.join().toLowerCase();
         const result = `${element.title},${element.tag},${element.keyword},${element.postedDate}`;
         element.All = result.toLowerCase();
       });
-      // console.log(jsonData);
-      // console.table(jsonData);
       setValue(jsonData);
     })();
   }, []);
 
+
   useEffect(() => {
     const arrMap = value.map((elem) => {
-      // console.log("Alliiiiiii", elem);
       return elem.tag.toLowerCase();
     });
     const set = new Set(arrMap);
     setTagList(["All", ...Array.from(set)]);
 
-    // value.forEach((element: any) => {
-    //   const result = Object.values(element);
-    //   element.All = result.join().toLowerCase();
-    // });
+    value.forEach((element: any) => {
+      const result = `${element.title},${element.tag},${element.keyword},${element.postedDate}`;
+      element.All = result.toLowerCase();
+    });
 
     setFilterValue(value);
   }, [value]);
-  // console.log(value);
 
   const [show, setShow] = useState<boolean>(false);
   const openModal = () => {

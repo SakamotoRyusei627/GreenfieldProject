@@ -9,11 +9,6 @@ type Props = {
   imgList:string[]
 };
 const List: React.FC<Props> = ({ post ,imgList}) => {
-  // console.log("###################################");
-  // console.log(imgList);
-  // console.log(post.tag.toLowerCase());
-  // console.log(imgList.includes(post.tag.toLowerCase()));
-  // const postTag
 
   return (
     <div className="wrapper">

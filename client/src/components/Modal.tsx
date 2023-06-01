@@ -27,7 +27,7 @@ const Modal: React.FC<Props> = ({
     const postingMonth = String(new Date().getMonth() + 1).padStart(2, "0");
     const postingDate = String(new Date().getDate()).padStart(2, "0");
 
-    const result= {
+    const result = {
       title: e.target.title.value,
       postedDate: `${postingYear}-${postingMonth}-${postingDate}`,
       tag: e.target.tag.value,
@@ -35,18 +35,24 @@ const Modal: React.FC<Props> = ({
       url: e.target.url.value,
       All: "",
     };
+
     const resultAll = `${result.title},${result.tag},${result.keyword},${result.postedDate}`;
     result.All = resultAll.toLowerCase();
     const maxId = Math.max(...value.map((e) => e.id));
     console.log({ maxId });
+    console.log(result);
 
-    // const fetchData = await fetch(`http://localhost:8000/send/${maxId}`, {
-    //   method: "POST",
-    //   body: JSON.stringify(result)
-    // }).then(res => res.json());
+    const fetchData = await fetch(`http://localhost:8000/send/${maxId}`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'  //
+      },
+      body: JSON.stringify(result),
+    }).then((res) => res.json());
+    console.log(fetchData);
+    // //バックエンド開放後
+    setValue([...value, ...fetchData]);
 
-    // setValue([...value, ...fetchData]);
-    setValue([...value, result]);
     setShow(false);
   };
 
@@ -57,7 +63,6 @@ const Modal: React.FC<Props> = ({
           <form onSubmit={handleSubmit} className="Modal_form">
             <h1>NEW POST</h1>
             <div>
-              {/* <label htmlFor="title">タイトル</label> */}
               <input
                 ref={inputRef}
                 type="text"
@@ -67,12 +72,8 @@ const Modal: React.FC<Props> = ({
                 required
               />
             </div>
-            {/* <div>
-              <label htmlFor="date">日付</label>
-              <input type="date" name="date" id="date" />
-            </div> */}
+
             <div>
-              {/* <label htmlFor="tag">タグ</label> */}
               <input
                 type="text"
                 list="list"
@@ -87,7 +88,6 @@ const Modal: React.FC<Props> = ({
               </datalist>
             </div>
             <div>
-              {/* <label htmlFor="keyword">検索キーワード</label> */}
               <input
                 type="text"
                 name="keyword"
@@ -96,13 +96,8 @@ const Modal: React.FC<Props> = ({
               />
             </div>
             <div>
-              {/* <label htmlFor="url">URL</label> */}
               <input type="text" name="url" id="url" placeholder=" URL" />
             </div>
-            {/* <div>
-              <label htmlFor="image">画像</label>
-              <input type="text" name="image" id="image" />
-            </div> */}
             <button type="submit">POST</button>
             <button onClick={() => setShow(false)}>CLOSE</button>
           </form>

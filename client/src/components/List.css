@@ -1,9 +1,10 @@
 .wrapper {
   width: 320px;
   margin: 2em;
+  border-radius: 0.5em 0.5em 0 0;
 }
 
-.wrapper:hover{
+.wrapper:hover {
   box-shadow: 0 -3px 10px 5px rgb(105, 105, 105);
 }
 
