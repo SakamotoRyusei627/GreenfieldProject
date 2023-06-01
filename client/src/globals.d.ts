@@ -1,11 +1,12 @@
 export interface table {
+  All: string;
   id: number;
   title: string;
-  posted_date: number;
+  postedDate: string;
   tag: string;
   keyword: string;
   url: string;
-  pict_url: string;
+  pictureUrl: string;
 }
 
 // exports.up = function (knex) {

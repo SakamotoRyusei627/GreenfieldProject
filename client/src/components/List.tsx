@@ -6,28 +6,32 @@ import "../Reset.css";
 
 type Props = {
   post: table;
+  imgList:string[]
 };
-const List: React.FC<Props> = ({ post }) => {
+const List: React.FC<Props> = ({ post ,imgList}) => {
+
   return (
     <div className="wrapper">
       <a href={post.url}>
         <div>
-          {/* <img src="https://picsum.photos/200" alt="参考" /> */}
-          <img src={`./images/${"css"}.svg`} alt="アイコン" />
+          {imgList.includes(post.tag.toLowerCase())
+            ? <img src={`./images/${post.tag}.svg`} alt="アイコンtrue" />
+            : <img src={`./images/${"溺れる人のピクトグラム"}.svg`} alt="アイコンfalse" />
+          }
         </div>
         <div>
-          <ul>
+          <ul className="explanation">
             <li className="wrapper-title">
-              {`タイトル:${post.title}`}
+              {`${post.title}`}
             </li>
             <li className="wrapper-date">
-              {`投稿日時:${post.posted_date}`}
+              {`日時　${post.postedDate}`}
             </li>
             <li className="wrapper-tag">
-              {`言語タグ:${post.tag}`}
+              {`タグ　${post.tag}`}
             </li>
-            <li className="wrapper-url">
-              {`URL:${post.url}`}
+            <li className="wrapper-keyword">
+              {`検索　${post.keyword}`}
             </li>
           </ul>
         </div>
